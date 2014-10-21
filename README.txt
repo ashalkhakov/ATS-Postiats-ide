@@ -1,7 +1,7 @@
-D4 IDE
+ATS IDE
 ======
 
-The goal is to create a newer IDE for D4.
+The goal is to create a newer IDE for ATS.
 
 To compile:
 
@@ -11,7 +11,7 @@ To compile:
 
 3. Open the terminal emulator of your choice and type the following:
 
-$ mdtool setup pack MonoDevelop.D4Binding/MonoDevelop.ATSBinding.addin.xml
+$ mdtool setup pack MonoDevelop.ATSBinding/MonoDevelop.ATSBinding.addin.xml
 
 4. There should be a file named MonoDevelop.ATSBinding_V.mpack (where
 V stands for version, e.g. 0.0.1), which you can install into
