@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<Template originator   = "Artyom Shalkhakov" 
+          created      = "19/10/2014"
+          lastModified = "19/10/2014">
+	
+	<!-- Template Header -->
+	<TemplateConfiguration>
+                <_Name>Empty ATS Library</_Name>
+                <_Category>ATS</_Category>
+                <Icon>md-project|res:csharp-icon-32.png</Icon>
+                <LanguageName>ATS</LanguageName>
+                <_Description>Creates an empty ATS solution.</_Description>
+	</TemplateConfiguration>
+
+	<Actions>
+		<Open filename = "DATS/comp1.dats"/>
+	</Actions>
+
+	<!-- Template Content -->
+	<Combine name = "${ProjectName}" directory = ".">
+		<Options>
+			<StartupProject>${ProjectName}</StartupProject>
+		</Options>
+
+		<Project name = "${ProjectName}" directory = ".">
+			<Options Target="Library" TargetFrameworkVersion="4.0" PauseConsole="false" />
+			<References>
+				<Reference type="Package" refto="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+		        <Reference type="Package" refto="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+		        <Reference type="Package" refto="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+			</References>
+			<Files>
+				<Directory name="SATS" />
+				<Directory name="DATS">
+					<File name="comp1.dats" src="comp1.dats"/>
+				</Directory>
+			</Files>
+		</Project>
+	</Combine>
+</Template>

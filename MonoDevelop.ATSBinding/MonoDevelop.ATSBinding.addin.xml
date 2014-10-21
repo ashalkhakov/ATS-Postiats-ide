@@ -1,0 +1,83 @@
+﻿<Addin
+	id="ATSBinding"
+	namespace="MonoDevelop"
+	name="ATS Language Binding"
+	author="Artyom Shalkhakov"
+	copyright="MIT/X11"
+	url="http://www.ats-lang.org"
+	description="ATS IDE"
+	category="Language bindings" version="0.0.1">
+
+	<Runtime>
+		<Import assembly="MonoDevelop.ATSBinding.dll"/>
+		<Import file="templates/EmptyDATSFile.xft.xml"/>
+		<Import file="templates/EmptySATSFile.xft.xml"/>
+		<Import file="templates/EmptyATSLibrary.xpt.xml"/>
+	</Runtime>
+
+	<Dependencies>
+		<Addin id="Ide" version="5.0"/>
+		<Addin id="Core" version="5.0" />
+		<Addin id="SourceEditor2" version = "5.0" />
+	</Dependencies>
+	<Extension path="/MonoDevelop/SourceEditor2/CustomModes">
+		<SyntaxMode mimeTypes="text/x-dats" class="MonoDevelop.ATSBinding.ATSSyntaxMode"/>
+		<SyntaxMode mimeTypes="text/x-sats" class="MonoDevelop.ATSBinding.ATSSyntaxMode"/>
+	</Extension>
+	<Extension path="/MonoDevelop/ProjectModel/LanguageBindings">
+		<LanguageBinding
+			id = "ATS"
+			supportedextensions = ".dats,.sats"
+			class = "MonoDevelop.ATSBinding.ATSLanguageBinding" />
+	</Extension>
+<!--
+	<Extension path="/MonoDevelop/TypeSystem/Parser">
+		<Parser class="MonoDevelop.ATSBinding.ATSParser" mimeType="text/x-dats" />
+	</Extension>-->
+
+	<Extension path="/MonoDevelop/Ide/FileFilters">
+		<FileFilter id="DATS" insertbefore="AllFiles" _label="ATS Dynamics Source Files" extensions="*.dats"/>
+		<FileFilter id="SATS" insertbefore="AllFiles" _label="ATS Statics Source Files" extensions="*.sats"/>
+	</Extension>
+	<Extension path="/MonoDevelop/Ide/FileTemplates">
+		<FileTemplate id="EmptyDATSFile"
+			file="templates/EmptyDATSFile.xft.xml"/>
+		<FileTemplate id="EmptySATSFile"
+			file="templates/EmptySATSFile.xft.xml"/>
+	</Extension>
+	<Extension path="/MonoDevelop/Ide/ProjectTemplates">
+		<ProjectTemplate
+			id="ATSLibrary"
+			file="templates/EmptyATSLibrary.xpt.xml"/>
+	</Extension>
+	<Extension path="/MonoDevelop/Core/MimeTypes">
+		<MimeType id="text/x-dats" _description="ATS Dynamics Source File" icon="md-file-source" isText="true">
+			<File pattern="*.dats" />
+		</MimeType>
+		<MimeType id="text/x-sats" _description="ATS Statics Source File" icon="md-file-source" isText="true">
+			<File pattern="*.sats" />
+		</MimeType>
+	    <MimeType id="application/atsproject+xml" _description="ATS project file" baseType="application/xml">
+	      <File pattern="*.atsproj" />
+	    </MimeType>
+	</Extension>
+	<Extension path="/MonoDevelop/Ide/FileTemplateTypes">
+		<FileTemplateType name="DATSFile" class="MonoDevelop.ATSBinding.templates.DATSFileDescriptionTemplate"/>
+	</Extension>
+
+	<Extension path = "/MonoDevelop/ProjectModel/MSBuildItemTypes">
+		<DotNetProject
+			language="ATS"
+			extension="atsproj"
+			guid="{a35df7c3-d36e-4d45-b7b8-c754d359de0c}"
+			resourceHandler="MonoDevelop.ATSBinding.ATSResourceIdBuilder"/>
+	</Extension>
+
+  <Extension path = "/MonoDevelop/ProjectModel/ProjectServiceExtensions">
+    <Class class = "MonoDevelop.ATSBinding.ATSProjectServiceExtension" />
+  </Extension>
+
+	<Extension path="/MonoDevelop/ProjectModel/SerializableClasses">
+		<DataType class="MonoDevelop.ATSBinding.ATSProjectConfiguration" />
+	</Extension>
+</Addin>

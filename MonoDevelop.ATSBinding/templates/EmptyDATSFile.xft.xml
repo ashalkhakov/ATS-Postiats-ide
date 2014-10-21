@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Template
+	Originator="Artyom Shalkhakov"
+	Language="ATS"
+	Created="19/10/2014"
+	LastModified="19/10/2014">
+
+	<TemplateConfiguration>
+	    <_Name>Empty ATS dynamics File</_Name>
+	    <Icon>md-text-file-icon</Icon>
+	    <_Category>General</_Category>
+	    <LanguageName>ATS</LanguageName>
+	    <_Description>Creates an empty ATS dynamics file.</_Description>
+	</TemplateConfiguration>
+	
+	<TemplateFiles>
+        <File DefaultExtension=".dats" DefaultName="empty_file">
+			<![CDATA[// created on ${Date} at ${Time}]]>
+		</File>
+	</TemplateFiles>
+	
+	<FileOptions/>
+
+</Template>
