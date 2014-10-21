@@ -1,5 +1,7 @@
 ATS IDE
-======
+=======
+
+![](screenshots/screenshot_as_editor.png)
 
 The goal is to create a newer IDE for ATS.
 
