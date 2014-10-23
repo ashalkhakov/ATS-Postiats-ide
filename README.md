@@ -5,28 +5,36 @@ ATS IDE
 
 The goal is to create an IDE for ATS.
 
+## Install stable version
+
 To install stable version:
 
 * 1. Install Mono 3.x and MonoDevelop 5.x (see instructions from mono-project.com)
 * 2. Go to add-in manager, and manually add a new repository
 
-```
-http://underivable.org/monodevelop/5.0
-```
 
-* 3. The ATS binding should appear in the list of language bindings, so you can install it.
+    http://underivable.org/monodevelop/5.0
+
+
+* 3. The ATS binding should appear in the list of language bindings (in the top menu:), so you can install it.
+
+## Compile from sources
 
 To compile from git sources:
 
 * 1. Install Mono 3.x and MonoDevelop 5.x
 * 2. Fork this repo and clone it to your machine
-* 3. Open the solution in MonoDevelop and hit "Compile" (in Debug configuration)
-* 4. Open the terminal emulator of your choice, navigate to the solution directory, then type:
+* 3. To install in MonoDevelop:
 
-```
-$ mdtool setup pack MonoDevelop.ATSBinding/bin/Debug/MonoDevelop.ATSBinding.addin.xml
-```
+````
+$ make install
+````
 
-* 5. There should be a file named MonoDevelop.ATSBinding_V.mpack (where V stands for version, e.g. 0.0.1), which you can install into MonoDevelop via the GUI menu: Tools -> Add-in Manager -> Install from file.
+If you ever need to release a package:
 
-* 6. The plugin should just work.
+````
+$ make release
+````
+
+You will also have to put the resulting "repository" directory on a
+webserver.
